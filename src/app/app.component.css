@@ -1,0 +1,17 @@
+:host .example-container {
+  height: 100vh;
+}
+
+:host .app-icon-button {
+  margin-right: 16px;
+  min-width: 0;
+}
+
+:host .example-sidenav {
+  padding: 16px;
+}
+
+:host .app-content {
+  padding: 16px;
+}
+

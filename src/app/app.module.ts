@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { firebaseConfig } from './config';
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -12,6 +14,7 @@ const myFirebaseAuthConfig = {
 @NgModule({
   imports: [
     BrowserModule,
+    MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   declarations: [ AppComponent ],

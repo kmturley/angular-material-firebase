@@ -1,13 +1,25 @@
-<div *ngIf="af.auth | async">
-  <p><img src="{{ (af.auth | async)?.google.photoURL }}" /> {{ (af.auth | async)?.google.displayName }}</p>
-  <p><button (click)="logout()">Logout</button></p>
-  <ul>
-    <li *ngFor="let item of items | async">
-       {{ item | json }}
-    </li>
-  </ul>
-</div>
-<div *ngIf="!(af.auth | async)">
-  <p>Please log in</p>
-  <p><button (click)="login()">Login</button></p>
-</div>
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    <div *ngIf="af.auth | async">
+      <img src="{{ (af.auth | async)?.google.photoURL }}" />
+      <p>{{ (af.auth | async)?.google.displayName }}</p>
+      <p><button md-raised-button (click)="logout()">Logout</button></p>
+    </div>
+    <div *ngIf="!(af.auth | async)">
+      <p>Please log in</p>
+      <p><button md-raised-button (click)="login()">Login</button></p>
+    </div>
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons">menu</i>
+    </button>
+    Angular2 Material Firebase
+  </md-toolbar>
+  <div class="app-content">
+    <h1>Users</h1>
+    <ul>
+      <li *ngFor="let item of items | async">{{ item.displayName }} ({{ item.email }})</li>
+    </ul>
+  </div>
+</md-sidenav-container>
