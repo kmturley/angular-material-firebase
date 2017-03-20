@@ -1,0 +1,13 @@
+<div *ngIf="af.auth | async">
+  <p><img src="{{ (af.auth | async)?.google.photoURL }}" /> {{ (af.auth | async)?.google.displayName }}</p>
+  <p><button (click)="logout()">Logout</button></p>
+  <ul>
+    <li *ngFor="let item of items | async">
+       {{ item | json }}
+    </li>
+  </ul>
+</div>
+<div *ngIf="!(af.auth | async)">
+  <p>Please log in</p>
+  <p><button (click)="login()">Login</button></p>
+</div>
