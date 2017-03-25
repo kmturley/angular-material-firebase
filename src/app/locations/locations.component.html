@@ -1,7 +1,13 @@
 <md-card>
   <h1>Locations</h1>
-  <p>Currently there are {{ (items.length | async) || 0 }} locations</p>
+  <p>Currently there are {{ (items | async)?.length || 0 }} locations</p>
   <ul>
     <li *ngFor="let item of items | async">{{ item.name }}</li>
   </ul>
+  <form #form="ngForm" (ngSubmit)="add(item)" novalidate *ngIf="af.auth | async">
+    <md-input-container>
+      <input mdInput [(ngModel)]="item.name" name="name" placeholder="Name" required />
+    </md-input-container>
+    <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Add</button>
+  </form>
 </md-card>

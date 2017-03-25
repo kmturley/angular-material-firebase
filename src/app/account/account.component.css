@@ -1,7 +1,13 @@
 :host .user {
     background: #000;
     border-radius: 50%;
+    cursor: pointer;
     height: 2.25em;
+    transition: transform .15s ease-out;
     width: 2.25em;
     vertical-align: bottom;
+}
+
+:host .user:hover {
+    transform: scale(1.25);
 }

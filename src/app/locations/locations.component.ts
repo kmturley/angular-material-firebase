@@ -1,27 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
+export class Location {
+  date: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-locations',
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.css']
 })
-export class LocationsComponent {
+export class LocationsComponent implements OnInit {
+  item: Location = { date: 0, name: '' };
   items: FirebaseListObservable<any[]>;
 
   constructor(public af: AngularFire) {
-    this.items = af.database.list('/locations');
   }
 
-  addItem(newName: string) {
-    this.items.push({ text: newName });
+  ngOnInit() {
+    this.items = this.af.database.list('/locations');
   }
 
-  updateItem(key: string, newText: string) {
-    this.items.update(key, { text: newText });
+  add(item: Location) {
+    item.date = new Date().getTime();
+    this.items.push(item).then(() => {
+      this.reset();
+    });
   }
 
-  deleteItem(key: string) {
+  update(key: string, item: Location) {
+    this.items.update(key, item);
+  }
+
+  delete(key: string) {
     this.items.remove(key);
+  }
+
+  reset() {
+    this.item = { date: 0, name: '' };
   }
 }

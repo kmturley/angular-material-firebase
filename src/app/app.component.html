@@ -2,18 +2,18 @@
   <md-sidenav #sidenav [mode]="isDesktop() ? 'side' : 'over'" [opened]="isDesktop()" class="sidenav">
     <md-list>
         <md-list-item class="sidenav-item" routerLink="/">
-            <md-icon class="material-icons">home</md-icon>
+            <md-icon class="material-icons" color="primary">home</md-icon>
             <span>Home</span>
         </md-list-item>
         <md-list-item class="sidenav-item" routerLink="/locations">
-            <md-icon class="material-icons">location_on</md-icon>
+            <md-icon class="material-icons" color="primary">location_on</md-icon>
             <span>Locations</span>
         </md-list-item>
     </md-list>
   </md-sidenav>
   <md-toolbar color="primary" class="app-toolbar">
       <button md-button class="app-icon-button" (click)="sidenav.toggle()"><i class="material-icons">menu</i></button>
-      <span class="app-toolbar-title">NgMatFire</span>
+      <span class="app-toolbar-title" routerLink="/">NgMatFire</span>
       <span class="app-toolbar-filler"></span>
       <app-account></app-account>
   </md-toolbar>

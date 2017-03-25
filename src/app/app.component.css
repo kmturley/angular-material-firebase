@@ -16,12 +16,13 @@
 }*/
 
 :host .app-toolbar-title {
+  cursor: pointer;
   font-weight: normal;
 }
 
-:host .app-content {
+/*:host .app-content {
   padding: 16px;
-}
+}*/
 
 :host .app-toolbar-filler {
   flex: 1 1 auto;
@@ -36,7 +37,7 @@
 
 :host .sidenav-item {
   cursor: pointer;
-  transition: background-color .25s ease-out;
+  transition: background-color .15s ease-out;
 }
 
 :host .sidenav-item:hover {

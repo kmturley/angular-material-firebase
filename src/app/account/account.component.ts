@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-export class AccountComponent {
+export class AccountComponent implements OnInit {
 
   constructor(public af: AngularFire) {
+  }
+
+  ngOnInit() {
     this.af.auth.subscribe((state: FirebaseAuthState) => {
       if (state) {
         console.log('logged in', state);

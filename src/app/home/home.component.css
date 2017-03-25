@@ -1,0 +1,14 @@
+:host {
+    align-items: center;
+    background: no-repeat center/100% 100% url('/assets/bg.jpg');
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: calc(100vh - 64px);
+    justify-content: center;
+}
+
+:host h1 {
+    font-weight: normal;
+}
