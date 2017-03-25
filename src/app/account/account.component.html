@@ -1,0 +1,6 @@
+<div *ngIf="af.auth | async">
+  <img src="{{ (af.auth | async)?.google.photoURL }}" alt="{{ (af.auth | async)?.google.displayName }}" class="user" (click)="logout()" />
+</div>
+<div *ngIf="!(af.auth | async)">
+  <button md-button (click)="login()">Login</button>
+</div>

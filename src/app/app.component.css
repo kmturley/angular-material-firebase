@@ -1,4 +1,4 @@
-:host .example-container {
+:host .container {
   height: 100vh;
 }
 
@@ -7,11 +7,42 @@
   min-width: 0;
 }
 
-:host .example-sidenav {
-  padding: 16px;
+/*:host .app-toolbar {
+    min-height: 64px;
+}
+
+:host md-toolbar-row {
+  height: 64px;
+}*/
+
+:host .app-toolbar-title {
+  font-weight: normal;
 }
 
 :host .app-content {
   padding: 16px;
 }
 
+:host .app-toolbar-filler {
+  flex: 1 1 auto;
+}
+
+/* sidenav */
+
+:host .sidenav {
+  padding: 16px;
+  min-width: 200px;
+}
+
+:host .sidenav-item {
+  cursor: pointer;
+  transition: background-color .25s ease-out;
+}
+
+:host .sidenav-item:hover {
+  background-color: #eee;
+}
+
+:host .sidenav-item span {
+  margin-left: .5em;
+}
