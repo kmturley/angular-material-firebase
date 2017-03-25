@@ -15,8 +15,7 @@ export class LocationsComponent implements OnInit {
   item: Location = { date: 0, name: '' };
   items: FirebaseListObservable<any[]>;
 
-  constructor(public af: AngularFire) {
-  }
+  constructor(public af: AngularFire) { }
 
   ngOnInit() {
     this.items = this.af.database.list('/locations');
@@ -30,6 +29,7 @@ export class LocationsComponent implements OnInit {
   }
 
   update(key: string, item: Location) {
+    item.date = new Date().getTime();
     this.items.update(key, item);
   }
 

@@ -1,0 +1,15 @@
+<md-card *ngIf="(af.auth | async)">
+  <h1>Profile</h1>
+  <p><img src="{{ (item | async)?.photo }}" alt="Photo" /></p>
+  <p>Name: {{ (item | async)?.name }}</p>
+  <p>Email: {{ (item | async)?.email }}</p>
+  <form #form="ngForm" (ngSubmit)="update(item)" novalidate  *ngIf="false">
+    <md-input-container>
+      <input mdInput [(ngModel)]="item.name" name="name" placeholder="Name" required />
+    </md-input-container>
+    <md-input-container>
+      <input mdInput [(ngModel)]="item.email" name="email" placeholder="Email" required />
+    </md-input-container>
+    <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Save</button>
+  </form>
+</md-card>
