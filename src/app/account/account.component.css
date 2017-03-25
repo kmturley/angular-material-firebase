@@ -11,3 +11,7 @@
 :host .user:hover {
     transform: scale(1.25);
 }
+
+:host .label {
+    vertical-align: inherit;
+}

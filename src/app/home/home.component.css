@@ -7,6 +7,7 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
     height: calc(100vh - 64px);
     justify-content: center;
+    text-align: center;
 }
 
 :host h1 {
