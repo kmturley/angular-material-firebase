@@ -1,6 +1,6 @@
 :host {
     align-items: center;
-    background: no-repeat center/100% 100% url('/assets/bg.jpg');
+    background: no-repeat center/100% 100% url('../../assets/bg.jpg');
     color: #fff;
     display: flex;
     flex-direction: column;
