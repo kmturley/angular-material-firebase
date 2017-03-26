@@ -1,12 +1,40 @@
 :host {
-  display: block;
-  padding: 1em;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-:host .mat-card {
-  margin-bottom: 1em;
+:host .intro {
+  background-color: #5162C4;
+  color: #fff;
+  padding: 2em;
+  position: relative;
+  text-align: center;
 }
 
-:host h1 {
+:host h1,
+:host h2,
+:host h3,
+:host h4 {
   font-weight: normal;
+  margin: .25em 0;
+}
+
+:host .edit {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    min-width: auto;
+}
+
+:host .user {
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+}
+
+:host .input {
+  width: 100%;
+}
+
+:host button {
+  margin-left: 1em;
 }
