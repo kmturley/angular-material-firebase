@@ -1,12 +1,3 @@
-:host {
-  display: block;
-  padding: 1em;
-}
-
-:host .mat-card {
-  margin-bottom: 1em;
-}
-
 :host h1 {
   font-weight: normal;
 }
