@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -8,7 +9,7 @@ import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angula
 })
 export class AccountComponent implements OnInit {
   item: FirebaseObjectObservable<any>;
-  constructor(public af: AngularFire) { }
+  constructor(public af: AngularFire, private router: Router) { }
 
   ngOnInit() {
     this.af.auth.subscribe((state: FirebaseAuthState) => {
@@ -22,9 +23,13 @@ export class AccountComponent implements OnInit {
             name: data.name || state.google.displayName,
             photo: data.photo || state.google.photoURL
           });
+          if (!data.email) {
+            this.router.navigate(['/profile'], { queryParams: { edit: true } });
+          }
         });
       } else {
         console.log('AccountComponent.notLoggedIn', state);
+        this.router.navigate(['/']);
       }
     });
   }

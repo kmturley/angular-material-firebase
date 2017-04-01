@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // components
 import { AppComponent } from './app.component';
