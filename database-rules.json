@@ -1,9 +1,14 @@
 {
   "rules": {
-    ".read": "auth !== null",
-    ".write": "auth !== null",
-    "users": {
-      ".write": "newData.child('uid').val() === auth.uid"
+    "locations": {
+      ".read": true,
+      ".write": "auth.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'"
+    },
+    "profiles": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
     }
   }
 }

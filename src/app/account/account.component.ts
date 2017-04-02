@@ -15,9 +15,9 @@ export class AccountComponent implements OnInit {
     this.af.auth.subscribe((state: FirebaseAuthState) => {
       if (state) {
         console.log('AccountComponent.loggedIn', state);
-        this.item = this.af.database.object('/profiles/' + state.google.uid);
+        this.item = this.af.database.object(`/profiles/${state.uid}`);
         this.item.subscribe(data => {
-          console.log('AccountComponent.item.subscribe');
+          console.log('AccountComponent.item.subscribe', data);
           this.item.update({
             email: data.email || state.google.email,
             name: data.name || state.google.displayName,
