@@ -16,10 +16,10 @@ export class ProfileComponent implements OnInit {
     this.af.auth.subscribe((state: FirebaseAuthState) => {
       if (state) {
         console.log('ProfileComponent.loggedIn', state);
-        this.route.params.subscribe(params => {
+        this.route.params.subscribe((params: Params) => {
           this.item = this.af.database.object(`/users/${params['id']}`);
         });
-        this.route.queryParams.subscribe(params => {
+        this.route.queryParams.subscribe((params: Params) => {
           if (params['edit']) {
             this.editMode(params['edit']);
           }
