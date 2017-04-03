@@ -38,9 +38,9 @@ export class ProfileComponent implements OnInit {
     this.item.set(obj);
   }
 
-  update(name: string, email: string, intro: string) {
+  update(name: string, intro: string) {
     console.log(this.item);
-    this.item.update({ name: name, email: email, intro: intro });
+    this.item.update({ name: name, intro: intro });
     this.editMode(false);
   }
 

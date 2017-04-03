@@ -10,19 +10,12 @@
   </md-card>
 </div>
 <md-card *ngIf="(item | async) && edit">
-  <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, email.value, intro.value)">
+  <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, intro.value)">
     <h1>Edit profile</h1>
     <div fxLayout="row">
       <div fxFlex="100">
         <md-input-container class="input">
           <input mdInput [ngModel]="(item | async)?.name" #name name="name" placeholder="Name" required />
-        </md-input-container>
-      </div>
-    </div>
-    <div fxLayout="row">
-      <div fxFlex="100">
-        <md-input-container class="input">
-          <input mdInput [ngModel]="(item | async)?.email" #email name="email" placeholder="Email" required />
         </md-input-container>
       </div>
     </div>

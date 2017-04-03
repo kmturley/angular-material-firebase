@@ -19,12 +19,11 @@ export class AccountComponent implements OnInit {
         this.item.subscribe(data => {
           console.log('AccountComponent.item.subscribe', data);
           this.item.update({
-            email: data.email || state.google.email,
             name: data.name || state.google.displayName,
             photo: data.photo || state.google.photoURL
           });
-          if (!data.email) {
-            this.router.navigate(['/users'], { queryParams: { edit: true } });
+          if (!data.name) {
+            this.router.navigate([`/users/${state.uid}`], { queryParams: { edit: true }});
           }
         });
       } else {
