@@ -1,0 +1,23 @@
+h1 {
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+}
+
+.items {
+  margin: 2em 0;
+}
+
+.item {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+.user {
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+}

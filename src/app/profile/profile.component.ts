@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
       if (state) {
         console.log('ProfileComponent.loggedIn', state);
         this.route.params.subscribe((params: Params) => {
-          this.item = this.af.database.object(`/users/${params['id']}`);
+          this.item = this.af.database.object(`/members/${params['id']}`);
         });
         this.route.queryParams.subscribe((params: Params) => {
           if (params['edit']) {

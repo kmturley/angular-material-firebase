@@ -15,7 +15,7 @@ export class AccountComponent implements OnInit {
     this.af.auth.subscribe((state: FirebaseAuthState) => {
       if (state) {
         console.log('AccountComponent.loggedIn', state);
-        this.item = this.af.database.object(`/users/${state.uid}`);
+        this.item = this.af.database.object(`/members/${state.uid}`);
         this.item.subscribe(data => {
           console.log('AccountComponent.item.subscribe', data);
           this.item.update({
@@ -23,7 +23,7 @@ export class AccountComponent implements OnInit {
             photo: data.photo || state.google.photoURL
           });
           if (!data.name) {
-            this.router.navigate([`/users/${state.uid}`], { queryParams: { edit: true }});
+            this.router.navigate([`/members/${state.uid}`], { queryParams: { edit: true }});
           }
         });
       } else {

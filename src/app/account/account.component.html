@@ -1,7 +1,7 @@
 <div *ngIf="af.auth | async">
   <img src="{{ (af.auth | async)?.google.photoURL || '../../assets/no-photo.gif' }}" alt="{{ (af.auth | async)?.google.displayName }}" class="user" [mdMenuTriggerFor]="menu" />
   <md-menu #menu="mdMenu">
-      <button md-menu-item [routerLink]="'/users/' + (af.auth | async)?.uid">
+      <button md-menu-item [routerLink]="'/members/' + (af.auth | async)?.uid">
       <md-icon class="icon">account_box</md-icon>
       <span class="label">My Profile</span>
     </button>

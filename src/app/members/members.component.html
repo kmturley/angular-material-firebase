@@ -1,0 +1,10 @@
+<md-card>
+  <h1>Members</h1>
+  <p>Currently there are {{ (items | async)?.length || 0 }} members</p>
+  <div fxLayout="row" class="items">
+    <a [routerLink]="'/members/' + item.$key" fxFlex="15" *ngFor="let item of items | async" class="item">
+      <img src="{{ item.photo || '../../assets/no-photo.gif' }}" alt="{{ item.name }}" class="user" />
+      <p>{{ item.name }}</p>
+    </a>
+  </div>
+</md-card>

@@ -4,10 +4,10 @@
       ".read": true,
       ".write": "auth.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'"
     },
-    "users": {
+    "members": {
+      ".read": true,
       "$uid": {
-        ".read": true,
-        ".write": "$uid === auth.uid"
+        ".write": "$uid === auth.uid",
       }
     }
   }
