@@ -3,11 +3,11 @@ import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angula
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-member',
+  templateUrl: './member.component.html',
+  styleUrls: ['./member.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class MemberComponent implements OnInit {
   edit: Boolean;
   item: FirebaseObjectObservable<any>;
   constructor(public af: AngularFire, private route: ActivatedRoute) { }
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.af.auth.subscribe((state: FirebaseAuthState) => {
       if (state) {
-        console.log('ProfileComponent.loggedIn', state);
+        console.log('MemberComponent.loggedIn', state);
         this.route.params.subscribe((params: Params) => {
           this.item = this.af.database.object(`/members/${params['id']}`);
         });
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
           }
         });
       } else {
-        console.log('ProfileComponent.notLoggedIn', state);
+        console.log('MemberComponent.notLoggedIn', state);
       }
     });
   }

@@ -14,8 +14,8 @@ import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { HomeComponent } from './home/home.component';
 import { LocationsComponent } from './locations/locations.component';
-import { ProfileComponent } from './profile/profile.component';
 import { MembersComponent } from './members/members.component';
+import { MemberComponent } from './member/member.component';
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'locations', component: LocationsComponent },
   { path: 'members', component: MembersComponent },
-  { path: 'members/:id', component: ProfileComponent }
+  { path: 'members/:id', component: MemberComponent }
 ];
 
 @NgModule({
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  declarations: [ AppComponent, AccountComponent, LocationsComponent, HomeComponent, ProfileComponent, MembersComponent ],
+  declarations: [ AppComponent, AccountComponent, LocationsComponent, HomeComponent, MembersComponent, MemberComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
