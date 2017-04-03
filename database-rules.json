@@ -4,7 +4,7 @@
       ".read": true,
       ".write": "auth.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'"
     },
-    "profiles": {
+    "users": {
       "$uid": {
         ".read": "$uid === auth.uid",
         ".write": "$uid === auth.uid"

@@ -24,7 +24,7 @@ const myFirebaseAuthConfig = {
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'locations', component: LocationsComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'users', component: ProfileComponent }
 ];
 
 @NgModule({
