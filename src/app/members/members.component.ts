@@ -12,14 +12,14 @@ export class Member {
     styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
-    item?: Member;
-    items: FirebaseListObservable<any[]>;
+    member?: Member;
+    members: FirebaseListObservable<any[]>;
 
     constructor(
         public af: AngularFire
     ) { }
 
     ngOnInit(): void {
-        this.items = this.af.database.list('/members');
+        this.members = this.af.database.list('/members');
     }
 }
