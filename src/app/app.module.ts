@@ -1,13 +1,15 @@
 // libraries
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
-import { firebaseConfig } from './config';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import 'hammerjs';
+
+import { AppRoutingModule } from './app-routing.module';
+import { firebaseConfig } from './config';
 
 // components
 import { AppComponent } from './app.component';
@@ -18,27 +20,19 @@ import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './member/member.component';
 
 const myFirebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Popup
+    provider: AuthProviders.Google,
+    method: AuthMethods.Popup
 };
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'locations', component: LocationsComponent },
-  { path: 'members', component: MembersComponent },
-  { path: 'members/:id', component: MemberComponent }
-];
-
 @NgModule({
-  imports: [
-    BrowserModule,
-    FlexLayoutModule,
-    FormsModule,
-    MaterialModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
-    RouterModule.forRoot(appRoutes)
-  ],
-  declarations: [ AppComponent, AccountComponent, LocationsComponent, HomeComponent, MembersComponent, MemberComponent ],
-  bootstrap: [ AppComponent ]
+    imports: [
+        BrowserModule,
+        FlexLayoutModule,
+        FormsModule,
+        MaterialModule,
+        AppRoutingModule,
+        AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    ],
+    declarations: [AppComponent, AccountComponent, LocationsComponent, HomeComponent, MembersComponent, MemberComponent],
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
