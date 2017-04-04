@@ -12,30 +12,30 @@ export class Location {
     styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
-    item?: Location;
-    items: FirebaseListObservable<any[]>;
+    location?: Location;
+    locations: FirebaseListObservable<any[]>;
 
     constructor(
         public af: AngularFire
     ) { }
 
     ngOnInit(): void {
-        this.items = this.af.database.list('/locations');
+        this.locations = this.af.database.list('/locations');
     }
 
-    add(item: Location): void {
-        item.date = new Date().getTime();
-        this.items.push(item).then(() => {
-            item = undefined;
+    add(location: Location): void {
+        location.date = new Date().getTime();
+        this.locations.push(location).then(() => {
+            location = undefined;
         });
     }
 
-    update(key: string, item: Location): void {
-        item.date = new Date().getTime();
-        this.items.update(key, item);
+    update(key: string, location: Location): void {
+        location.date = new Date().getTime();
+        this.locations.update(key, location);
     }
 
     delete(key: string): void {
-        this.items.remove(key);
+        this.locations.remove(key);
     }
 }
