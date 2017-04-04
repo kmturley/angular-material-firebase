@@ -31,7 +31,7 @@ export class LocationComponent implements OnInit {
         this.edit = isEditable;
     }
 
-    save(obj: Object): void {
+    save(obj: object): void {
         this.item.set(obj);
     }
 
