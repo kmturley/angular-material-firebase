@@ -1,16 +1,16 @@
 <md-card>
-  <h1>Locations</h1>
-  <p>Currently there are {{ (items | async)?.length || 0 }} locations</p>
-  <div fxLayoutWrap class="items">
-    <a [routerLink]="'/locations/' + item.$key" fxFlex="25" *ngFor="let item of items | async" class="item">
-      <img src="{{ item.photo || '../../assets/no-location.png' }}" alt="{{ item.name }}" />
-      <p>{{ item.name }}</p>
-    </a>
-  </div>
-  <form #form="ngForm" (ngSubmit)="add(item)" novalidate *ngIf="(af.auth | async)?.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'">
-    <md-input-container>
-      <input mdInput [(ngModel)]="item.name" name="name" placeholder="Name" required />
-    </md-input-container>
-    <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Add</button>
-  </form>
+    <h1>Locations</h1>
+    <p>Currently there are {{ (locations | async)?.length || 0 }} locations</p>
+    <div fxLayoutWrap class="items">
+        <a *ngFor="let location of locations | async" [routerLink]="'/locations/' + location.$key" fxFlex="25" class="item">
+            <img src="{{ location.photo || '../../assets/no-location.png' }}" alt="{{ location.name }}" />
+            <p>{{ location.name }}</p>
+        </a>
+    </div>
+    <form #form="ngForm" (ngSubmit)="add(location)" novalidate *ngIf="(af.auth | async)?.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'">
+        <md-input-container>
+            <input mdInput [(ngModel)]="location.name" name="name" placeholder="Name" required />
+        </md-input-container>
+        <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Add</button>
+    </form>
 </md-card>

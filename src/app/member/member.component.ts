@@ -1,42 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
+import { Member } from '../members/members.component';
 @Component({
-  selector: 'app-member',
-  templateUrl: './member.component.html',
-  styleUrls: ['./member.component.css']
+    selector: 'app-member',
+    templateUrl: './member.component.html',
+    styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
-  edit: Boolean;
-  item: FirebaseObjectObservable<any>;
-  constructor(public af: AngularFire, private route: ActivatedRoute) { }
+    edit: boolean;
+    member: FirebaseObjectObservable<any>;
 
-  ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      this.item = this.af.database.object(`/members/${params['id']}`);
-    });
-    this.route.queryParams.subscribe((params: Params) => {
-      if (params['edit']) {
-        this.editMode(params['edit']);
-      }
-    });
-  }
+    constructor(
+        public af: AngularFire,
+        private route: ActivatedRoute
+    ) { }
 
-  editMode(isEditable: Boolean) {
-    this.edit = isEditable;
-  }
+    ngOnInit(): void {
+        this.route.params.subscribe((params: Params) => {
+            this.member = this.af.database.object(`/members/${params['id']}`);
+        });
+        this.route.queryParams.subscribe((params: Params) => {
+            if (params['edit']) {
+                this.editMode(params['edit']);
+            }
+        });
+    }
 
-  save(obj: Object) {
-    this.item.set(obj);
-  }
+    editMode(isEditable: boolean): void {
+        this.edit = isEditable;
+    }
 
-  update(name: string, desc: string) {
-    this.item.update({ name: name, desc: desc });
-    this.editMode(false);
-  }
+    save(member: Member): void {
+        this.member.set(member);
+    }
 
-  delete() {
-    this.item.remove();
-  }
+    update(name: string, desc: string): void {
+        this.member.update({ name: name, desc: desc });
+        this.editMode(false);
+    }
+
+    delete(): void {
+        this.member.remove();
+    }
 }
