@@ -3,9 +3,9 @@
 }
 
 :host .desc {
-  background-color: #5162C4;
+  background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), no-repeat center/cover url('../../assets/no-location.png');
   color: #fff;
-  padding: 2em;
+  padding: 5em 2em;
   position: relative;
   text-align: center;
 }
@@ -15,7 +15,8 @@
 :host h3,
 :host h4 {
   font-weight: normal;
-  margin: .25em 0;
+  margin: .25em auto;
+  max-width: 30em;
 }
 
 :host .edit {
