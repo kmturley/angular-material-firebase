@@ -2,42 +2,40 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 export class Location {
-  date: number;
-  name: string;
+    date: number;
+    name: string;
 }
 
 @Component({
-  selector: 'app-locations',
-  templateUrl: './locations.component.html',
-  styleUrls: ['./locations.component.css']
+    selector: 'app-locations',
+    templateUrl: './locations.component.html',
+    styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
-  item: Location = { date: 0, name: '' };
-  items: FirebaseListObservable<any[]>;
+    item?: Location;
+    items: FirebaseListObservable<any[]>;
 
-  constructor(public af: AngularFire) { }
+    constructor(
+        public af: AngularFire
+    ) { }
 
-  ngOnInit() {
-    this.items = this.af.database.list('/locations');
-  }
+    ngOnInit(): void {
+        this.items = this.af.database.list('/locations');
+    }
 
-  add(item: Location) {
-    item.date = new Date().getTime();
-    this.items.push(item).then(() => {
-      this.reset();
-    });
-  }
+    add(item: Location): void {
+        item.date = new Date().getTime();
+        this.items.push(item).then(() => {
+            item = undefined;
+        });
+    }
 
-  update(key: string, item: Location) {
-    item.date = new Date().getTime();
-    this.items.update(key, item);
-  }
+    update(key: string, item: Location): void {
+        item.date = new Date().getTime();
+        this.items.update(key, item);
+    }
 
-  delete(key: string) {
-    this.items.remove(key);
-  }
-
-  reset() {
-    this.item = { date: 0, name: '' };
-  }
+    delete(key: string): void {
+        this.items.remove(key);
+    }
 }
