@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
 import { ActivatedRoute, Params } from '@angular/router';
 
+import { Member } from '../members/members.component';
 @Component({
     selector: 'app-member',
     templateUrl: './member.component.html',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class MemberComponent implements OnInit {
     edit: boolean;
-    item: FirebaseObjectObservable<any>;
+    member: FirebaseObjectObservable<any>;
 
     constructor(
         public af: AngularFire,
@@ -18,7 +19,7 @@ export class MemberComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.subscribe((params: Params) => {
-            this.item = this.af.database.object(`/members/${params['id']}`);
+            this.member = this.af.database.object(`/members/${params['id']}`);
         });
         this.route.queryParams.subscribe((params: Params) => {
             if (params['edit']) {
@@ -31,16 +32,16 @@ export class MemberComponent implements OnInit {
         this.edit = isEditable;
     }
 
-    save(obj: object): void {
-        this.item.set(obj);
+    save(member: Member): void {
+        this.member.set(member);
     }
 
     update(name: string, desc: string): void {
-        this.item.update({ name: name, desc: desc });
+        this.member.update({ name: name, desc: desc });
         this.editMode(false);
     }
 
     delete(): void {
-        this.item.remove();
+        this.member.remove();
     }
 }
