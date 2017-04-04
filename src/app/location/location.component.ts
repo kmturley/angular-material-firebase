@@ -1,42 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-location',
-  templateUrl: './location.component.html',
-  styleUrls: ['./location.component.css']
+    selector: 'app-location',
+    templateUrl: './location.component.html',
+    styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
-  edit: Boolean;
-  item: FirebaseObjectObservable<any>;
-  constructor(public af: AngularFire, private route: ActivatedRoute) { }
+    edit: boolean;
+    item: FirebaseObjectObservable<any>;
 
-  ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      this.item = this.af.database.object(`/locations/${params['id']}`);
-    });
-    this.route.queryParams.subscribe((params: Params) => {
-      if (params['edit']) {
-        this.editMode(params['edit']);
-      }
-    });
-  }
+    constructor(
+        public af: AngularFire,
+        private route: ActivatedRoute
+    ) { }
 
-  editMode(isEditable: Boolean) {
-    this.edit = isEditable;
-  }
+    ngOnInit(): void {
+        this.route.params.subscribe((params: Params) => {
+            this.item = this.af.database.object(`/locations/${params['id']}`);
+        });
+        this.route.queryParams.subscribe((params: Params) => {
+            if (params['edit']) {
+                this.editMode(params['edit']);
+            }
+        });
+    }
 
-  save(obj: Object) {
-    this.item.set(obj);
-  }
+    editMode(isEditable: boolean): void {
+        this.edit = isEditable;
+    }
 
-  update(name: string, desc: string) {
-    this.item.update({ name: name, desc: desc });
-    this.editMode(false);
-  }
+    save(obj: Object): void {
+        this.item.set(obj);
+    }
 
-  delete() {
-    this.item.remove();
-  }
+    update(name: string, desc: string): void {
+        this.item.update({ name: name, desc: desc });
+        this.editMode(false);
+    }
+
+    delete(): void {
+        this.item.remove();
+    }
 }
