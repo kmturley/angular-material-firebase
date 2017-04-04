@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
 import { ActivatedRoute, Params } from '@angular/router';
 
+import { Location } from '../locations/locations.component';
 @Component({
     selector: 'app-location',
     templateUrl: './location.component.html',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class LocationComponent implements OnInit {
     edit: boolean;
-    item: FirebaseObjectObservable<any>;
+    location: FirebaseObjectObservable<any>;
 
     constructor(
         public af: AngularFire,
@@ -18,7 +19,7 @@ export class LocationComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.subscribe((params: Params) => {
-            this.item = this.af.database.object(`/locations/${params['id']}`);
+            this.location = this.af.database.object(`/locations/${params['id']}`);
         });
         this.route.queryParams.subscribe((params: Params) => {
             if (params['edit']) {
@@ -31,16 +32,16 @@ export class LocationComponent implements OnInit {
         this.edit = isEditable;
     }
 
-    save(obj: object): void {
-        this.item.set(obj);
+    save(location: Location): void {
+        this.location.set(location);
     }
 
     update(name: string, desc: string): void {
-        this.item.update({ name: name, desc: desc });
+        this.location.update({ name: name, desc: desc });
         this.editMode(false);
     }
 
     delete(): void {
-        this.item.remove();
+        this.location.remove();
     }
 }
