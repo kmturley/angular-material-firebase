@@ -1,16 +1,16 @@
 <div *ngIf="(item | async) && !edit">
-  <div class="intro" color="primary">
+  <div class="desc" color="primary">
       <button *ngIf="(item | async)?.$key === (af.auth | async)?.uid" md-button (click)="editMode(true)" class="edit"><i class="material-icons">edit</i></button>
       <img src="{{ (item | async)?.photo || '../../assets/no-photo.gif' }}" alt="{{ (item | async)?.name }}" class="user" />
       <h1>{{ (item | async)?.name }}</h1>
-      <h4>{{ (item | async)?.intro }}</h4>
+      <h4>{{ (item | async)?.desc }}</h4>
   </div>
   <md-card>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non nunc gravida, condimentum lorem id, aliquet libero. In eu fermentum erat. Ut nec vestibulum metus. Curabitur in lacus non mi mollis vehicula. Curabitur vel consequat ligula. Praesent iaculis maximus enim, sit amet imperdiet libero tincidunt in.</p>
   </md-card>
 </div>
 <md-card *ngIf="(item | async) && edit">
-  <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, intro.value)">
+  <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, desc.value)">
     <h1>Edit profile</h1>
     <div fxLayout="row">
       <div fxFlex="100">
@@ -22,7 +22,7 @@
     <div fxLayout="row">
       <div fxFlex="100">
         <md-input-container class="input">
-          <textarea mdInput [ngModel]="(item | async)?.intro" #intro name="intro" placeholder="Intro"></textarea>
+          <textarea mdInput [ngModel]="(item | async)?.desc" #desc name="desc" placeholder="Description"></textarea>
         </md-input-container>
       </div>
     </div>

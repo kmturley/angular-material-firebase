@@ -28,7 +28,6 @@ export class AccountComponent implements OnInit {
         });
       } else {
         console.log('AccountComponent.notLoggedIn', state);
-        this.router.navigate(['/']);
       }
     });
   }

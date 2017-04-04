@@ -1,10 +1,13 @@
 <md-card>
   <h1>Locations</h1>
   <p>Currently there are {{ (items | async)?.length || 0 }} locations</p>
-  <ul>
-    <li *ngFor="let item of items | async">{{ item.name }}</li>
-  </ul>
-  <form #form="ngForm" (ngSubmit)="add(item)" novalidate *ngIf="af.auth | async">
+  <div fxLayoutWrap class="items">
+    <a [routerLink]="'/locations/' + item.$key" fxFlex="25" *ngFor="let item of items | async" class="item">
+      <img src="{{ item.photo || '../../assets/no-location.png' }}" alt="{{ item.name }}" />
+      <p>{{ item.name }}</p>
+    </a>
+  </div>
+  <form #form="ngForm" (ngSubmit)="add(item)" novalidate *ngIf="(af.auth | async)?.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'">
     <md-input-container>
       <input mdInput [(ngModel)]="item.name" name="name" placeholder="Name" required />
     </md-input-container>

@@ -2,12 +2,14 @@
   "rules": {
     "locations": {
       ".read": true,
-      ".write": "auth.uid === 'cjOQ8RRuHxaAO8BIGwlbgHirzn12'"
+      "$location_id": {
+        ".write": "'cjOQ8RRuHxaAO8BIGwlbgHirzn12' === auth.uid"
+      }
     },
     "members": {
       ".read": true,
       "$uid": {
-        ".write": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
       }
     }
   }

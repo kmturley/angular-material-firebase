@@ -3,18 +3,18 @@ import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angula
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-member',
-  templateUrl: './member.component.html',
-  styleUrls: ['./member.component.css']
+  selector: 'app-location',
+  templateUrl: './location.component.html',
+  styleUrls: ['./location.component.css']
 })
-export class MemberComponent implements OnInit {
+export class LocationComponent implements OnInit {
   edit: Boolean;
   item: FirebaseObjectObservable<any>;
   constructor(public af: AngularFire, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.item = this.af.database.object(`/members/${params['id']}`);
+      this.item = this.af.database.object(`/locations/${params['id']}`);
     });
     this.route.queryParams.subscribe((params: Params) => {
       if (params['edit']) {
