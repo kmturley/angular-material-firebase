@@ -1,41 +1,41 @@
 :host {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-:host .desc {
-  background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), no-repeat center/cover url('../../assets/no-location.png');
-  color: #fff;
-  padding: 5em 2em;
-  position: relative;
-  text-align: center;
+.desc {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), no-repeat center/cover url('../../assets/no-location.png');
+    color: #fff;
+    padding: 5em 2em;
+    position: relative;
+    text-align: center;
 }
 
-:host h1,
-:host h2,
-:host h3,
-:host h4 {
-  font-weight: normal;
-  margin: .25em auto;
-  max-width: 30em;
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+    margin: .25em auto;
+    max-width: 30em;
 }
 
-:host .edit {
+.edit {
     position: absolute;
     right: 1em;
     top: 1em;
     min-width: auto;
 }
 
-:host .user {
+.user {
     border-radius: 50%;
     height: 5em;
     width: 5em;
 }
 
-:host .input {
-  width: 100%;
+.input {
+    width: 100%;
 }
 
-:host button {
-  margin-left: 1em;
+button {
+    margin-left: 1em;
 }

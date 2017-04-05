@@ -12,7 +12,7 @@ export class Location {
     styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
-    location?: Location;
+    location: Location;
     locations: FirebaseListObservable<any[]>;
 
     constructor(
@@ -20,13 +20,14 @@ export class LocationsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        this.location = { date: 0, name: '' };
         this.locations = this.af.database.list('/locations');
     }
 
     add(location: Location): void {
         location.date = new Date().getTime();
         this.locations.push(location).then(() => {
-            location = undefined;
+            this.location = { date: 0, name: '' };
         });
     }
 

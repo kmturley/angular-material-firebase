@@ -1,10 +1,14 @@
-<div *ngIf="(item | async) && !edit">
-  <div class="desc" color="primary" [ngStyle]="{ 'background-image': 'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(' + ((item | async)?.photo || '../../assets/no-location.png') + ')'}">
-      <button *ngIf="(item | async)?.$key === (af.auth | async)?.uid" md-button (click)="editMode(true)" class="edit"><i class="material-icons">edit</i></button>
-      <h1>{{ (item | async)?.name }}</h1>
-      <h4>{{ (item | async)?.desc }}</h4>
-  </div>
-  <md-card>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non nunc gravida, condimentum lorem id, aliquet libero. In eu fermentum erat. Ut nec vestibulum metus. Curabitur in lacus non mi mollis vehicula. Curabitur vel consequat ligula. Praesent iaculis maximus enim, sit amet imperdiet libero tincidunt in.</p>
-  </md-card>
+<div *ngIf="(location | async) && !edit">
+    <div class="desc" color="primary" [ngStyle]="{ 'background-image': 'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(' + ((location | async)?.photo || '../../assets/no-location.png') + ')'}">
+        <button *ngIf="(location | async)?.$key === (af.auth | async)?.uid" md-button (click)="editMode(true)" class="edit">
+            <i class="material-icons">edit</i>
+        </button>
+        <h1>{{ (location | async)?.name }}</h1>
+        <h4>{{ (location | async)?.desc }}</h4>
+    </div>
+    <md-card>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non nunc gravida, condimentum lorem id, aliquet libero.
+            In eu fermentum erat. Ut nec vestibulum metus. Curabitur in lacus non mi mollis vehicula. Curabitur vel consequat
+            ligula. Praesent iaculis maximus enim, sit amet imperdiet libero tincidunt in.</p>
+    </md-card>
 </div>

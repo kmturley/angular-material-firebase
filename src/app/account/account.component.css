@@ -1,4 +1,4 @@
-:host .user {
+.user {
     border-radius: 50%;
     cursor: pointer;
     height: 2.25em;
@@ -7,10 +7,10 @@
     vertical-align: bottom;
 }
 
-:host .user:hover {
+.user:hover {
     transform: scale(1.25);
 }
 
-:host .label {
+.label {
     vertical-align: inherit;
 }

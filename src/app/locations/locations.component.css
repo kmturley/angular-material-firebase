@@ -1,22 +1,22 @@
 h1 {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
-.items {
-  margin: 2em 0;
+.locations {
+    margin: 2em 0;
 }
 
-.item {
-  color: #000;
-  margin-bottom: 1em;
-  text-align: center;
-  text-decoration: none;
+.location {
+    color: #000;
+    margin-bottom: 1em;
+    text-align: center;
+    text-decoration: none;
 }
 
-img {
-  max-width: 90%;
+.location img {
+    max-width: 90%;
 }
