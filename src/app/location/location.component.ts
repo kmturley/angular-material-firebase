@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFire, FirebaseAuthState, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Location } from '../locations/locations.component';
@@ -12,6 +12,8 @@ import { Location } from '../locations/locations.component';
 export class LocationComponent implements OnInit {
     edit: boolean;
     location: FirebaseObjectObservable<any>;
+    likes: FirebaseListObservable<any>;
+    likesLocation: FirebaseObjectObservable<any>;
 
     constructor(
         public af: AngularFire,
@@ -20,7 +22,15 @@ export class LocationComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.subscribe((params: Params) => {
-            this.location = this.af.database.object(`/locations/${params['id']}`);
+            if (params['id']) {
+                this.location = this.af.database.object(`/locations/${params['id']}`);
+                this.af.auth.subscribe((state: FirebaseAuthState) => {
+                    if (state) {
+                        this.likes = this.af.database.list(`/likes/${state.uid}`);
+                        this.likesLocation = this.af.database.object(`/likes/${state.uid}/${params['id']}`);
+                    }
+                });
+            }
         });
         this.route.queryParams.subscribe((params: Params) => {
             if (params['edit']) {
@@ -33,8 +43,8 @@ export class LocationComponent implements OnInit {
         this.edit = isEditable;
     }
 
-    save(location: Location): void {
-        this.location.set(location);
+    save(): void {
+        this.likesLocation.set(new Date().getTime());
     }
 
     update(name: string, desc: string): void {
@@ -43,6 +53,6 @@ export class LocationComponent implements OnInit {
     }
 
     delete(): void {
-        this.location.remove();
+        this.likesLocation.remove();
     }
 }

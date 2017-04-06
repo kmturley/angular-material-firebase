@@ -1,5 +1,11 @@
 {
   "rules": {
+    "likes": {
+      ".read": true,
+      "$uid": {
+        ".write": "$uid === auth.uid"
+      }
+    },
     "locations": {
       ".read": true,
       "$location_id": {
