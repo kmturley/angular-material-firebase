@@ -3,6 +3,7 @@ import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angula
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Member } from '../members/members.component';
+
 @Component({
     selector: 'app-member',
     templateUrl: './member.component.html',

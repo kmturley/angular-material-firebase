@@ -1,5 +1,5 @@
 <div *ngIf="(location | async) && !edit">
-    <div class="desc" color="primary" [ngStyle]="{ 'background-image': 'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(' + ((location | async)?.photo || '../../assets/no-location.png') + ')'}">
+    <div class="desc" color="primary" [ngStyle]="{ 'background-image': 'linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(' + ((location | async)?.photo || '/assets/no-location.png') + ')'}">
         <button *ngIf="(location | async)?.$key === (af.auth | async)?.uid" md-button (click)="editMode(true)" class="edit">
             <i class="material-icons">edit</i>
         </button>

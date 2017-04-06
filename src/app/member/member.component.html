@@ -1,7 +1,7 @@
 <div *ngIf="(member | async) && !edit">
     <div class="desc" color="primary">
         <button *ngIf="(member | async)?.$key === (af.auth | async)?.uid" md-button (click)="editMode(true)" class="edit"><i class="material-icons">edit</i></button>
-        <img src="{{ (member | async)?.photo || '../../assets/no-photo.gif' }}" alt="{{ (member | async)?.name }}" class="user" />
+        <img src="{{ (member | async)?.photo || '/assets/no-photo.gif' }}" alt="{{ (member | async)?.name }}" class="user" />
         <h1>{{ (member | async)?.name }}</h1>
         <h4>{{ (member | async)?.desc }}</h4>
     </div>

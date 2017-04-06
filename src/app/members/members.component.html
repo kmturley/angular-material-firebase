@@ -3,7 +3,7 @@
     <p>Currently there are {{ (members | async)?.length || 0 }} members</p>
     <div fxLayout="row" class="members">
         <a *ngFor="let member of members | async" [routerLink]="'/members/' + member.$key" fxFlex="15" class="member">
-            <img src="{{ member.photo || '../../assets/no-photo.gif' }}" alt="{{ member.name }}" />
+            <img src="{{ member.photo || '/assets/no-photo.gif' }}" alt="{{ member.name }}" />
             <p>{{ member.name }}</p>
         </a>
     </div>

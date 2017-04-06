@@ -3,6 +3,7 @@ import { AngularFire, FirebaseAuthState, FirebaseObjectObservable } from 'angula
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Location } from '../locations/locations.component';
+
 @Component({
     selector: 'app-location',
     templateUrl: './location.component.html',
