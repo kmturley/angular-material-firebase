@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import 'hammerjs';
 
@@ -26,7 +25,6 @@ const myFirebaseAuthConfig = {
 @NgModule({
     imports: [
         BrowserModule,
-        FlexLayoutModule,
         FormsModule,
         MaterialModule,
         AppRoutingModule,

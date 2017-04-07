@@ -1,49 +1,38 @@
-:host .container {
-  height: 100vh;
+.container {
+    height: 100vh;
 }
 
-:host .app-icon-button {
-  margin-right: 16px;
-  min-width: 0;
+.app-icon-button {
+    margin-right: 16px;
+    min-width: 0;
 }
 
-/*:host .app-toolbar {
-    min-height: 64px;
+.app-toolbar-title {
+    cursor: pointer;
+    font-weight: normal;
 }
 
-:host md-toolbar-row {
-  height: 64px;
-}*/
-
-:host .app-toolbar-title {
-  cursor: pointer;
-  font-weight: normal;
+.app-toolbar-filler {
+    flex: 1 1 auto;
 }
 
-/*:host .app-content {
-  padding: 16px;
-}*/
-
-:host .app-toolbar-filler {
-  flex: 1 1 auto;
-}
 
 /* sidenav */
 
-:host .sidenav {
-  padding: 16px;
-  min-width: 200px;
+.sidenav {
+    padding: 16px;
+    min-width: 200px;
 }
 
-:host .sidenav-item {
-  cursor: pointer;
-  transition: background-color .15s ease-out;
+.sidenav-item {
+    cursor: pointer;
+    transition: background-color .15s ease-out;
 }
 
-:host .sidenav-item:hover {
-  background-color: #eee;
+.sidenav-item:hover {
+    background-color: #eee;
 }
 
 :host .sidenav-item span {
-  margin-left: .5em;
+    margin-left: .5em;
 }

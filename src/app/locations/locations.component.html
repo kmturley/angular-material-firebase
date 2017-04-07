@@ -1,8 +1,8 @@
 <md-card>
     <h1>Locations</h1>
     <p>Currently there are {{ (locations | async)?.length || 0 }} locations</p>
-    <div fxLayoutWrap class="locations">
-        <a *ngFor="let location of locations | async" [routerLink]="'/locations/' + location.$key" fxFlex="25" class="location">
+    <div class="locations grid">
+        <a *ngFor="let location of locations | async" [routerLink]="'/locations/' + location.$key" class="location">
             <img src="{{ location.photo || '/assets/no-location.png' }}" alt="{{ location.name }}" />
             <p>{{ location.name }}</p>
         </a>

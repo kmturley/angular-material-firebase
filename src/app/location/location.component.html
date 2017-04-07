@@ -5,8 +5,12 @@
         </button>
         <h1>{{ (location | async)?.name }}</h1>
         <h4>{{ (location | async)?.desc }}</h4>
-        <button md-raised-button (click)="save()" *ngIf="!(likesLocation | async)?.$value" color="primary">Save</button>
-        <button md-button (click)="delete()" *ngIf="(likesLocation | async)?.$value">Saved</button>
+        <button class="save-button" md-raised-button (click)="save()" *ngIf="!(likesLocation | async)?.$value" color="primary">
+            <md-icon class="material-icons">favorite_border</md-icon> Like
+        </button>
+        <button class="save-button" md-raised-button (click)="delete()" *ngIf="(likesLocation | async)?.$value" color="primary">
+            <md-icon class="material-icons">favorite</md-icon> Liked
+        </button>
     </div>
     <md-card>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non nunc gravida, condimentum lorem id, aliquet libero.

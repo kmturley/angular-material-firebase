@@ -1,3 +1,9 @@
+<md-toolbar color="primary" class="app-toolbar">
+    <button md-button class="app-icon-button" (click)="sidenav.toggle()"><i class="material-icons">menu</i></button>
+    <span class="app-toolbar-title" routerLink="/">NgMatFire</span>
+    <span class="app-toolbar-filler"></span>
+    <app-account></app-account>
+</md-toolbar>
 <md-sidenav-container class="container">
   <md-sidenav #sidenav [mode]="isDesktop() ? 'side' : 'over'" [opened]="isDesktop()" class="sidenav">
     <md-list>
@@ -15,12 +21,6 @@
         </md-list-item>
     </md-list>
   </md-sidenav>
-  <md-toolbar color="primary" class="app-toolbar">
-      <button md-button class="app-icon-button" (click)="sidenav.toggle()"><i class="material-icons">menu</i></button>
-      <span class="app-toolbar-title" routerLink="/">NgMatFire</span>
-      <span class="app-toolbar-filler"></span>
-      <app-account></app-account>
-  </md-toolbar>
   <div class="app-content">
     <router-outlet></router-outlet>
   </div>

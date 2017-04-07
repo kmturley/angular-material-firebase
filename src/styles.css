@@ -5,3 +5,38 @@ body {
     color: #333;
     margin: 0;
 }
+
+/* grid */
+
+.grid {
+    display: grid;
+    grid-gap: 8px;
+}
+
+/* 30em = 480px */
+
+@media (min-width: 30em) {
+     .grid {
+        padding-right: calc(8px * 1);
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+     .grid {
+        grid-gap: 16px;
+        padding-right: calc(16px * 2);
+        grid-template-columns: repeat(3, 33.33%);
+    }
+}
+
+/* 64em = 1024px */
+
+@media (min-width: 64em) {
+     .grid {
+        padding-right: calc(16px * 3);
+        grid-template-columns: repeat(4, 25%);
+    }
+}

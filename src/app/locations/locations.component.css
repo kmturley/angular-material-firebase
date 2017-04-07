@@ -7,16 +7,17 @@ p {
 }
 
 .locations {
-    margin: 2em 0;
+    margin-top: 1em;
 }
 
 .location {
     color: #000;
-    margin-bottom: 1em;
     text-align: center;
     text-decoration: none;
 }
 
 .location img {
-    max-width: 90%;
+    height: 10em;
+    width: 100%;
+    object-fit: cover;
 }

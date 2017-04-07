@@ -14,23 +14,13 @@
 <md-card *ngIf="(member | async) && edit">
     <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, desc.value)">
         <h1>Edit profile</h1>
-        <div fxLayout="row">
-            <div fxFlex="100">
-                <md-input-container class="input">
-                    <input mdInput [ngModel]="(member | async)?.name" #name name="name" placeholder="Name" required />
-                </md-input-container>
-            </div>
-        </div>
-        <div fxLayout="row">
-            <div fxFlex="100">
-                <md-input-container class="input">
-                    <textarea mdInput [ngModel]="(member | async)?.desc" #desc name="desc" placeholder="Description"></textarea>
-                </md-input-container>
-            </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="end center">
-            <button type="cancel" md-raised-button>Cancel</button>
-            <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Save</button>
-        </div>
+        <md-input-container class="input">
+            <input mdInput [ngModel]="(member | async)?.name" #name name="name" placeholder="Name" required />
+        </md-input-container>
+        <md-input-container class="input">
+            <textarea mdInput [ngModel]="(member | async)?.desc" #desc name="desc" placeholder="Description"></textarea>
+        </md-input-container>
+        <button type="cancel" md-raised-button>Cancel</button>
+        <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Save</button>
     </form>
 </md-card>
