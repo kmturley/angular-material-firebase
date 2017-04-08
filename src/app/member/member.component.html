@@ -6,9 +6,13 @@
         <h4>{{ (member | async)?.desc }}</h4>
     </div>
     <md-card>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non nunc gravida, condimentum lorem id, aliquet libero.
-            In eu fermentum erat. Ut nec vestibulum metus. Curabitur in lacus non mi mollis vehicula. Curabitur vel consequat
-            ligula. Praesent iaculis maximus enim, sit amet imperdiet libero tincidunt in.</p>
+        <h3>Liked places</h3>
+        <div class="locations grid">
+            <a *ngFor="let location of locationsLiked" [routerLink]="'/locations/' + location.$key" class="location">
+                <img src="{{ location.photo || '/assets/no-location.png' }}" alt="{{ location.name }}" />
+                <p>{{ location.name }}</p>
+            </a>
+        </div>
     </md-card>
 </div>
 <md-card *ngIf="(member | async) && edit">

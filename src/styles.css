@@ -6,6 +6,28 @@ body {
     margin: 0;
 }
 
+/* locations */
+
+.locations {
+    margin-top: 1em;
+}
+
+.location {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+}
+
+.location img {
+    height: 10em;
+    width: 100%;
+    object-fit: cover;
+}
+
+.location p {
+    margin: 0;
+}
+
 /* grid */
 
 .grid {

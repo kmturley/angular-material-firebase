@@ -5,19 +5,3 @@ h1 {
 p {
     margin: 0;
 }
-
-.locations {
-    margin-top: 1em;
-}
-
-.location {
-    color: #000;
-    text-align: center;
-    text-decoration: none;
-}
-
-.location img {
-    height: 10em;
-    width: 100%;
-    object-fit: cover;
-}
