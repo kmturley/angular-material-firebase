@@ -15,7 +15,7 @@ Install the project dependancies using:
 
     npm install
 
-Create a file at /src/app/firebase.ts containing your settings:
+Create a file at /src/app/config.ts containing your settings:
 
     export const firebaseConfig = {
         apiKey: 'ABC123',
