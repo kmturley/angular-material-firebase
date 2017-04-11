@@ -29,9 +29,9 @@ export class MemberComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.subscribe((params: Params) => {
             this.member = this.af.database.object(`/members/${params['id']}`);
+            this.locations = this.af.database.list(`/locations`);
             this.likes = this.af.database.list(`/likes/${params['id']}`);
             this.likes.subscribe((likes) => {
-                this.locations = this.af.database.list(`/locations`);
                 this.locations.subscribe((locations) => {
                     this.locationsLiked = locations.filter((location) => {
                         return likes.find(x => x.$key === location.$key);
