@@ -8,7 +8,7 @@
     <md-card>
         <h3>Liked places</h3>
         <div class="locations grid">
-            <a *ngFor="let location of locationsLiked | slice:pageStart:pageEnd" [routerLink]="'/locations/' + location.$key" class="location">
+            <a *ngFor="let location of locations | async | slice:pageStart:pageEnd" [routerLink]="'/locations/' + location.$key" class="location">
                 <img src="{{ location.photo || '/assets/no-location.png' }}" alt="{{ location.name }}" />
                 <p>{{ location.name }}</p>
             </a>
