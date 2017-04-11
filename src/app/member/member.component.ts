@@ -11,11 +11,15 @@ import { Member } from '../members/members.component';
     styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
+    limit = 8;
     edit: boolean;
     likes: FirebaseListObservable<any>;
     locations: FirebaseListObservable<any[]>;
     locationsLiked: Array<any[]>;
     member: FirebaseObjectObservable<any>;
+    page = 1;
+    pageStart = 0;
+    pageEnd = this.limit;
 
     constructor(
         public af: AngularFire,
@@ -38,6 +42,11 @@ export class MemberComponent implements OnInit {
         this.route.queryParams.subscribe((params: Params) => {
             if (params['edit']) {
                 this.editMode(params['edit']);
+            }
+            if (params['page']) {
+                this.page = parseInt(params['page'], 10);
+                this.pageStart = (this.page - 1) * this.limit;
+                this.pageEnd = this.page * this.limit;
             }
         });
     }

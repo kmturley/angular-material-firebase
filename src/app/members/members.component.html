@@ -2,9 +2,10 @@
     <h1>Members</h1>
     <p>Currently there are {{ (members | async)?.length || 0 }} members</p>
     <div class="members grid">
-        <a *ngFor="let member of members | async" [routerLink]="'/members/' + member.$key" class="member">
+        <a *ngFor="let member of members | async | slice:pageStart:pageEnd" [routerLink]="'/members/' + member.$key" class="member">
             <img src="{{ member.photo || '/assets/no-photo.gif' }}" alt="{{ member.name }}" />
             <p>{{ member.name }}</p>
         </a>
     </div>
+    <app-pagination [items]="members" [limit]="limit"></app-pagination>
 </md-card>

@@ -1,0 +1,12 @@
+:host {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+  text-align: center;
+}
+
+button {
+  margin: 0 1em;
+  min-width: 0;
+}

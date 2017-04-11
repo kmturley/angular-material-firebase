@@ -17,6 +17,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { LocationComponent } from './location/location.component';
 import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './member/member.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 const myFirebaseAuthConfig = {
     provider: AuthProviders.Google,
@@ -30,7 +31,7 @@ const myFirebaseAuthConfig = {
         AppRoutingModule,
         AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
     ],
-    declarations: [AppComponent, AccountComponent, LocationsComponent, LocationComponent, HomeComponent, MembersComponent, MemberComponent],
+    declarations: [AppComponent, AccountComponent, LocationsComponent, LocationComponent, HomeComponent, MembersComponent, MemberComponent, PaginationComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
