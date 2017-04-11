@@ -6,24 +6,33 @@
         <h4>{{ (member | async)?.desc }}</h4>
     </div>
     <md-card>
-        <h3>Liked places</h3>
-        <div class="locations grid">
-            <a *ngFor="let location of locations | async | slice:pageStart:pageEnd" [routerLink]="'/locations/' + location.$key" class="location">
-                <img src="{{ location.photo || '/assets/no-location.png' }}" alt="{{ location.name }}" />
-                <p>{{ location.name }}</p>
-            </a>
+        <div class="section">
+            <h3>Interests</h3>
+            <p>{{ (member | async)?.interests }}</p>
         </div>
-        <app-pagination [items]="locations" [limit]="limit"></app-pagination>
+        <div class="section">
+            <h3>Liked places</h3>
+            <div class="locations grid">
+                <a *ngFor="let location of locations | async | slice:pageStart:pageEnd" [routerLink]="'/locations/' + location.$key" class="location">
+                    <img src="{{ location.photo || '/assets/no-location.png' }}" alt="{{ location.name }}" />
+                    <p>{{ location.name }}</p>
+                </a>
+            </div>
+            <app-pagination [items]="locations" [limit]="limit"></app-pagination>
+        </div>
     </md-card>
 </div>
 <md-card *ngIf="(member | async) && edit">
-    <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, desc.value)">
+    <form #form="ngForm" (ngSubmit)="$event.preventDefault(); update(name.value, desc.value, interests.value)">
         <h1>Edit profile</h1>
         <md-input-container class="input">
             <input mdInput [ngModel]="(member | async)?.name" #name name="name" placeholder="Name" required />
         </md-input-container>
         <md-input-container class="input">
             <textarea mdInput [ngModel]="(member | async)?.desc" #desc name="desc" placeholder="Description"></textarea>
+        </md-input-container>
+        <md-input-container class="input">
+            <textarea mdInput [ngModel]="(member | async)?.interests" #interests name="interests" placeholder="Interests"></textarea>
         </md-input-container>
         <button type="cancel" md-raised-button>Cancel</button>
         <button type="submit" [disabled]="!form.form.valid" md-raised-button color="primary">Save</button>

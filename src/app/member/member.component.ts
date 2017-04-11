@@ -12,7 +12,7 @@ import {Observable} from 'rxjs/Observable';
     styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
-    limit = 8;
+    limit = 4;
     edit: boolean;
     likes: FirebaseListObservable<any>;
     locations: Observable<any[]>;
@@ -60,8 +60,8 @@ export class MemberComponent implements OnInit {
         this.member.set(member);
     }
 
-    update(name: string, desc: string): void {
-        this.member.update({ name: name, desc: desc });
+    update(name: string, desc: string, interests: string): void {
+        this.member.update({ name: name, desc: desc, interests: interests });
         this.editMode(false);
     }
 
