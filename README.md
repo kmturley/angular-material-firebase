@@ -38,9 +38,14 @@ Then view the site at:
 
 ## Deployment
 
-Use the build command to optimise
+Use the deploy command to build and deploy your application to firebase hosting:
 
-    npm run build
+    npm run deploy
+
+If you haven't already, you can setup firebase using:
+
+    firebase login
+    firebase init
 
 
 ## Directory structure

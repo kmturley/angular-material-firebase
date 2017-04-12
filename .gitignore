@@ -42,4 +42,6 @@ testem.log
 Thumbs.db
 
 # firebase
+.firebaserc
 /src/app/config.ts
+functions
