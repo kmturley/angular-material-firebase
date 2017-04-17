@@ -1,0 +1,9 @@
+{
+  "short_name": "NgMatFire",
+  "name": "Angular Material Firebase",
+  "start_url": "./?utm_source=web_app_manifest",
+  "background_color": "#FAFAFA",
+  "theme_color": "#512DA8", 
+  "display": "standalone",  
+  "orientation": "portrait"  
+}
