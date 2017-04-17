@@ -1,5 +1,6 @@
 // libraries
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
@@ -25,6 +26,7 @@ const myFirebaseAuthConfig = {
 };
 @NgModule({
     imports: [
+        BrowserAnimationsModule,
         BrowserModule,
         FormsModule,
         MaterialModule,
