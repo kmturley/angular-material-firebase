@@ -4,7 +4,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { Location } from '../locations/locations.component';
 import { Member } from '../members/members.component';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 
 @Component({
     selector: 'app-member',
@@ -33,7 +35,7 @@ export class MemberComponent implements OnInit {
             this.likes = this.af.database.list(`/likes/${params['id']}`);
             this.likes.subscribe((likes) => {
                 this.locations = this.af.database.list(`/locations`)
-                    .map((locations) => {
+                    .map((locations:Array<any>) => {
                         return locations.filter((location) => {
                             return likes.find(x => x.$key === location.$key) ? true : false;
                         });
