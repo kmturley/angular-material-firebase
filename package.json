@@ -28,6 +28,7 @@
     "@angular/router": "^4.0.2",
     "angularfire2": "^2.0.0-beta.8",
     "core-js": "^2.4.1",
+    "engine.io-client": "^3.1.2",
     "firebase": "3.7.7",
     "hammerjs": "^2.0.8",
     "rxjs": "^5.1.0",
